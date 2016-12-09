@@ -12,7 +12,8 @@ RUN dpkg -i /tmp/mod_cloudflare-amd64.latest.deb
 # Configure cloudflare
 RUN sed -i -e 's/CloudFlareRemoteIPTrustedProxy/CloudFlareRemoteIPTrustedProxy 172.16.0.0\/12 192.168.0.0\/16 10.0.0.0\/8/' /etc/apache2/mods-enabled/cloudflare.conf
 
-
+# Enable apache mod_proxy
+RUN a2enmod proxy
 
 VOLUME /var/www/html
 EXPOSE 80
