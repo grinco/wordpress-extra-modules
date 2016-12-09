@@ -14,6 +14,7 @@ RUN sed -i -e 's/CloudFlareRemoteIPTrustedProxy/CloudFlareRemoteIPTrustedProxy 1
 
 # Enable apache mod_proxy
 RUN a2enmod proxy
+RUN a2enmod proxy_http
 
 VOLUME /var/www/html
 EXPOSE 80
