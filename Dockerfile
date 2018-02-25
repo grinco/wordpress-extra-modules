@@ -1,11 +1,12 @@
 FROM wordpress:latest
 
 # install the PHP extensions we need
-RUN apt-get update && apt-get -y dist-upgrade
+RUN apt-get update
+RUN apt-get -y dist-upgrade
 RUN docker-php-ext-install zip
 
 # Install and configure apache cloudflare module
-RUN apt-get -y install wget
+RUN apt-get -y install wget 
 RUN wget https://www.cloudflare.com/static/misc/mod_cloudflare/debian/mod_cloudflare-jessie-amd64.latest.deb -O /tmp/mod_cloudflare-amd64.latest.deb
 RUN dpkg -i /tmp/mod_cloudflare-amd64.latest.deb
 
