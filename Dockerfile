@@ -2,9 +2,10 @@
 # `wordpress:latest` re-resolves on every build and drifts between PHP versions (the site
 # was running PHP 8.2, security-fixes-only and end-of-life on 31 Dec 2026). A pinned tag is
 # reproducible and stays on supported PHP until we deliberately bump it.
-FROM wordpress:7.1.2-php8.4-apache
+FROM wordpress:7.1.3-php8.4-apache
 
 # ---- Security fix 1/3: bump PHP off EOL (see above) ----
+# 7.1.3-php8.4 ships PHP 8.4.27, which fixes PHP2Shell (CVE-2026-109618, CVE-2026-109619).
 
 # install the PHP extensions we need
 RUN apt-get update \
